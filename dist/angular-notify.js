@@ -129,6 +129,7 @@ angular.module('cgNotify', []).factory('notify',['$timeout','$http','$compile','
             });
 
             openNotificationsScope.push(scope);
+            $rootScope.$broadcast('alt-new-notification', args);
 
             return retVal;
 
@@ -159,24 +160,43 @@ angular.module('cgNotify').run(['$templateCache', function($templateCache) {
   'use strict';
 
   $templateCache.put('angular-notify.html',
-    "<div class=\"cg-notify-message\" ng-class=\"[$classes, \n" +
-    "    $position === 'center' ? 'cg-notify-message-center' : '',\n" +
-    "    $position === 'left' ? 'cg-notify-message-left' : '',\n" +
-    "    $position === 'right' ? 'cg-notify-message-right' : '']\"\n" +
-    "    ng-style=\"{'margin-left': $centerMargin}\">\n" +
+    "<div class=\"cg-notify-message\" ng-class=\"[$classes, \r" +
     "\n" +
-    "    <div ng-show=\"!$messageTemplate\">\n" +
-    "        {{$message}}\n" +
-    "    </div>\n" +
+    "    $position === 'center' ? 'cg-notify-message-center' : '',\r" +
     "\n" +
-    "    <div ng-show=\"$messageTemplate\" class=\"cg-notify-message-template\">\n" +
-    "        \n" +
-    "    </div>\n" +
+    "    $position === 'left' ? 'cg-notify-message-left' : '',\r" +
     "\n" +
-    "    <button type=\"button\" class=\"cg-notify-close\" ng-click=\"$close()\">\n" +
-    "        <span aria-hidden=\"true\">&times;</span>\n" +
-    "        <span class=\"cg-notify-sr-only\">Close</span>\n" +
-    "    </button>\n" +
+    "    $position === 'right' ? 'cg-notify-message-right' : '']\"\r" +
+    "\n" +
+    "    ng-style=\"{'margin-left': $centerMargin}\">\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "    <div ng-show=\"!$messageTemplate\">\r" +
+    "\n" +
+    "        {{$message}}\r" +
+    "\n" +
+    "    </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "    <div ng-show=\"$messageTemplate\" class=\"cg-notify-message-template\">\r" +
+    "\n" +
+    "        \r" +
+    "\n" +
+    "    </div>\r" +
+    "\n" +
+    "\r" +
+    "\n" +
+    "    <button type=\"button\" class=\"cg-notify-close\" ng-click=\"$close()\">\r" +
+    "\n" +
+    "        <span aria-hidden=\"true\">&times;</span>\r" +
+    "\n" +
+    "        <span class=\"cg-notify-sr-only\">Close</span>\r" +
+    "\n" +
+    "    </button>\r" +
+    "\n" +
+    "\r" +
     "\n" +
     "</div>"
   );

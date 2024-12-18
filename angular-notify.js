@@ -129,6 +129,7 @@ angular.module('cgNotify', []).factory('notify',['$timeout','$http','$compile','
             });
 
             openNotificationsScope.push(scope);
+            $rootScope.$broadcast('alt-new-notification', args);
 
             return retVal;
 
